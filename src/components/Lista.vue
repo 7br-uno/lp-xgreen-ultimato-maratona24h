@@ -211,6 +211,10 @@ export default {
       font-size: 20px;
       text-align: center;
     }
+
+    .soFrame iframe {
+      width: 90%;
+    }
   }
 
   @media (max-width:950px){
