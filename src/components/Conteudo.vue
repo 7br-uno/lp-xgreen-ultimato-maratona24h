@@ -26,7 +26,9 @@ export default {
           capaVideo: "capa_video01.png",
           borda: {
             border: 'none'
-          }
+          },
+          video: 'https://player.vimeo.com/video/569862364'
+
         },
         { 
           imgHover: false,
@@ -39,20 +41,8 @@ export default {
           capaVideo: "capa_video02.png",
           borda: {
             border: 'none'
-          }
-        },
-        { 
-          imgHover: false,
-          card:false,
-          crtlTitulo:false,
-          titulo: 'Curso Método Fast Green®',
-          descricao: 'Veja o que preparamos para você iniciar nesta jornada junto com a gente!',
-          img1: "ep_03.png",
-          img2: "ep_03_dark.png",
-          capaVideo: "capa_video03.png",
-          borda: {
-            border: 'none'
-          }
+          },
+          video: 'https://player.vimeo.com/video/570042033'
         },
         { 
           imgHover: false,
@@ -65,7 +55,8 @@ export default {
           capaVideo: "capa_video03.png",
           borda: {
             border: 'none'
-          }
+          },
+          video: 'https://player.vimeo.com/video/570930296'
         },
       ]
     }

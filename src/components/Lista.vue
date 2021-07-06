@@ -16,13 +16,18 @@
           <p style="font-weight:bold; margin-left:5px" class="descricao">{{cont.descricao}}</p>
         </div>
       </div>
-      <div v-if="i==3" class="frame">
-        <iframe v-show="cont.card && crtlBorda == i" src="https://www.youtube.com/embed/yWgWhuN8wc4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <img v-show="cont.card && crtlBorda == i" src="../assets/promocao.png" alt="promocao">
+      <div v-if="i==2" class="frame">
+        <iframe v-show="cont.card && crtlBorda == i" :src="cont.video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div v-show="cont.card && crtlBorda == i" class="promocao">
+          <h1>CLIQUE NO BOTÃO ABAIXO PARA APROVEITAR</h1>
+          <img src="../assets/img_ofertaespecial_maratona.png" alt="promocao">
+          <button>QUERO GANHAR 85% DE DESCONTO</button>
+          <h5>Aproveite é só HOJE até as 23h59</h5>
+        </div>
       </div>
 
       <div v-else class="soFrame">
-        <iframe v-show="cont.card && crtlBorda == i" src="https://www.youtube.com/embed/yWgWhuN8wc4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe v-show="cont.card && crtlBorda == i" :src="cont.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
     </div>
@@ -167,23 +172,24 @@ export default {
 
   .frame{
     display: flex;
+    align-items: center;
   }
 
   .frame iframe{
     height: 408px;
     width: 60%;
+    max-width: 100%;
   }
 
-  .frame img {
-    width: 40%;
-    height: 408px;
+  .soFrame{
+    display: flex;
   }
 
   .soFrame iframe{
-    display: flex;
+    width: 100%;
+    max-width: 100%;
     height: 300px;
     margin:auto;
-    width: 60%;
   }
 
   .titulo {
@@ -200,7 +206,72 @@ export default {
     width: 100px;
   }
 
+  .promocao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkgray;
+    width: 40%;
+    height: 408px;
+    gap: 20px;
+    margin-top: 10px;
+  }
 
+  .promocao img {
+    width: 200px;
+    height: 120px;
+    max-width: 100%;
+  }
+
+  .promocao h1 {
+    margin-top: 52px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+
+  .promocao h5 {
+    color: black;
+  }
+
+  .promocao button{
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  /* @media (max-width:346px){
+    .promocao button{
+      padding: 10px 0;
+      text-align: center;
+    }
+  } */
+  
+  @media (max-width:400px){
+    .promocao{
+      margin-top: -40px;
+    }
+  }
+  
+  @media (max-width:450px){
+    .soFrame iframe{
+      margin-top: -40px;
+    }
+  }
+  
+  @media (max-width:510px){
+    .promocao{
+      height: 100%;
+    }
+  }
+  
+  @media (max-width:490px){
+    .promocao{
+      margin-top: -20px;
+    }
+  }
+  
 
   @media (max-width:600px){
     .descricao{
@@ -212,10 +283,8 @@ export default {
       text-align: center;
     }
 
-    .soFrame iframe {
-      width: 90%;
-    }
   }
+
 
   @media (max-width:950px){
     .frame {
@@ -223,12 +292,18 @@ export default {
     }
 
     .frame iframe{
-      width: 100%;
+      width: 847px;
       height: 300px;
     }
 
-    .frame img {
-      width: 100%;
+    .promocao {
+      padding: 20px;
+      width: 90%;
+    }
+
+    .promocao img {
+      margin: auto;
+      justify-content: center;
     }
 
     
