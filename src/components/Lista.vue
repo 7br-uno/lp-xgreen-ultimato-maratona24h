@@ -145,6 +145,7 @@ export default {
   }
 
   .textoImagem{
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 30px;
