@@ -12,26 +12,88 @@
       <h5 class="seg">SEG</h5>
     </div>
   </div>
+  
 </template>
 
 <script>
+  var data = new Date()
+  var dia     = data.getDate()
+  var dateServidor = new Date()
+  var diferencaExecucao = 0
+  import barramento from '@/src/barramento'
+
+
   export default {
     data() {
       return {
-        hh : 23,//23,
-        mm : 59,//59,
-        ss : 60,//60,
-        hht : 0,
-        mmt : 0,
-        sst : 0,
+        hh : 23 - dateServidor.getHours(),//23,
+        mm : 59 - dateServidor.getMinutes(),//59,
+        ss : 59 - dateServidor.getSeconds(),//60,
+        hht : '',
+        mmt : '',
+        sst : '',
         tempo: 1000,
+        tempoVerificacao: 45000,
         cron: 0,
+        diaT: dia,
       }
     },
-    mounted() {
-      this.start()
+    mounted(){
+      //clearInterval(this.cron)
+      this.alteraDia();
+      
+      if(diferencaExecucao > 0){
+        setTimeout(() => {
+          this.hh = 23
+          this.mm = 59
+          this.ss = 59
+          this.hht = '23',
+          this.mmt = '59',
+          this.sst = '59',
+          this.alteraDia();
+        },diferencaExecucao)
+      }
+      
     },
     methods: {
+      alteraDia() {
+
+        var url = "https://xgreen-ultimato-api-joty3.ondigitalocean.app/api/datetime";//Sua URL
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+        var timeZoneLocal = new Date().getTimezoneOffset()
+
+        var timeZoneDiferenca = (180 - timeZoneLocal) * 1000 * 60
+
+        dateServidor = new Date(xhttp.responseText)
+
+        var dateInicio = new Date("2021-07-09T00:00:00-0300")
+        
+        dateInicio.setTime(dateInicio.getTime() - timeZoneDiferenca)
+
+        dateServidor.setTime(dateServidor.getTime() - timeZoneDiferenca)
+
+        diferencaExecucao = dateInicio.getTime() - dateServidor.getTime()
+
+        dia = dateServidor.getDate();
+        this.diaT = dia
+        if(dia == 9){
+          barramento.alterarDia(false)
+          this.start()
+        }else{
+          this.hh = 0
+          this.mm = 0
+          this.ss = 0
+          this.hht = '00',
+          this.mmt = '00',
+          this.sst = '00',
+          barramento.alterarDia(true)
+          
+        }
+      },
       start() {
         this.cron = setInterval(() => {
           this.timer(); 
@@ -52,6 +114,7 @@
           this.mm = 0
           this.hh = 0
 
+          barramento.alterarDia(true)
           clearInterval(this.cron)
         }
 
@@ -60,7 +123,8 @@
         this.mmt = this.mm < 10 ? '0' + this.mm : this.mm
         this.sst = this.ss < 10 ? '0' + this.ss : this.ss
       }
-    }
+    },
+    
   }
 
 

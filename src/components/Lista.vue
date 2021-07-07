@@ -21,7 +21,7 @@
         <div v-show="cont.card && crtlBorda == i" class="promocao">
           <h1>CLIQUE NO BOTÃO ABAIXO PARA APROVEITAR</h1>
           <img src="../assets/img_ofertaespecial_maratona.png" alt="promocao">
-          <button>QUERO GANHAR 85% DE DESCONTO</button>
+          <button id="botaoPromocao">QUERO GANHAR 85% DE DESCONTO</button>
           <h5>Aproveite é só HOJE até as 23h59</h5>
         </div>
       </div>
@@ -35,7 +35,8 @@
 </template>
 
 <script>
-// :style="crtlBorda == i ? cont.borda : {border:'none'}"  
+import barramento from '@/src/barramento'
+
 export default {
   props:['conteudo', 'borda'],
   data(){
@@ -44,7 +45,14 @@ export default {
       controlCard: false,
       crtlBorda: -1,
       iAnt: -1,
+      diaPromo: true,
     }
+  },
+  created(){
+    barramento.diaDaPromocao((dia) =>{
+      this.diaPromo = dia
+      document.getElementById("botaoPromocao").disabled = dia;
+    })
   },
   computed:{
     alterarBorda(){
@@ -63,22 +71,6 @@ export default {
       }
     }
   },methods:{
-    estiloBorda(i){
-      // this.crtlBorda = i
-      // if(this.borda == i ){
-      //   // this.conteudo[i].imgClick = true
-      //   this.crtlTitulo = true
-      //   return{
-      //     border: 1 + 'px' + ' solid' + ' #00FF48'
-      //   }
-      // }else{
-      //   this.conteudo[i].card = false
-      //   this.crtlTitulo = false
-      //   return {
-      //     border: 'none'
-      //   }
-      //  }
-    },
     exibirCard(i){
       if(this.iAnt != -1 && this.iAnt != i){
         this.conteudo[this.iAnt].crtlTitulo = false
@@ -240,6 +232,10 @@ export default {
     background-color: red;
     border-radius: 10px;
     padding: 10px;
+  }
+
+  #botaoPromocao:disabled{
+    opacity: 0.50;
   }
   
   /* @media (max-width:346px){

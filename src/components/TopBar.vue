@@ -14,7 +14,7 @@ import Cronometro from '@/src/components/Cronometro.vue'
 export default {
   components:{
     Cronometro
-  }
+  },
 }
 </script>
 
