@@ -1,4 +1,6 @@
-# lp-xgreen-ultimato-maratona24h
+# Landing Page: Join our Telegram chanel
+
+![Print Screen](https://github.com/7br-uno/lp-xgreen-ultimato-maratona24h/blob/dev/src/assets/pagePrint.png?raw=true)
 
 ## Build Setup
 
@@ -16,5 +18,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
