@@ -107,8 +107,7 @@ export default {
   .geral {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    padding-bottom: 35px;
+    padding-bottom: 20px;
   }
 
   .item{
