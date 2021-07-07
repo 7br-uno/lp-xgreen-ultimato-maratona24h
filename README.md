@@ -1,4 +1,4 @@
-# Landing Page: Join our Telegram chanel
+# Landing Page: Maratona 24h Ultimato
 
 ![Print Screen](https://github.com/7br-uno/lp-xgreen-ultimato-maratona24h/blob/dev/src/assets/pagePrint.png?raw=true)
 
