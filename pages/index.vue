@@ -20,20 +20,31 @@
       <div class="pagamento">
         <div class="divAvista">
           <p class="aVista">Para pagamento com cartão de crédito, Pix, boleto, Paypal, Conta Hotmart, Samsung Pay, Google Pay e débito</p>
-          <button id="btnAvista">
-            <a id="linkAvista" target="_blank" href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319">
-              CLIQUE AQUI
-            </a>
-          </button>
+          <v-btn 
+            :disabled="btnDisabled" 
+            color="#01ff4e" 
+            x-large 
+            class="black--text rounded-lg" 
+            target="_blank" 
+            href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319"
+          >
+            CLIQUE AQUI
+          </v-btn>
         </div>
         <v-divider v-if="!$vuetify.breakpoint.xs" vertical style="border-color: #01ff4e;"></v-divider>
         <div class="divAvista">
           <p class="aVista" style="margin-top:30px">Para pagamento com <br> <b>boleto parcelado</b></p>
-          <button id="btnPrazo" style="margin-top:20px">
-            <a id="linkPrazo" target="_blank" href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454">
-              CLIQUE AQUI
-            </a>
-          </button>
+          <v-btn 
+            :disabled="btnDisabled" 
+            color="#01ff4e" 
+            x-large 
+            class="black--text rounded-lg" 
+            style="margin-top:20px"
+            target="_blank" 
+            href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454"
+          >
+            CLIQUE AQUI
+          </v-btn>
         </div>
       </div>
     </v-container>
@@ -53,11 +64,13 @@
       ConteudoComponent,
       MyFooter
     },
+    data(){
+      return{
+        btnDisabled: false
+      }
+    },
     created(){
-      barramento.diaDaPromocao((dia) =>{
-        document.getElementById("btnAvista").disabled = dia;
-        document.getElementById("btnPrazo").disabled = dia;
-      })
+      barramento.diaDaPromocao((dia) =>{ this.btnDisabled = dia })
     },
   }
 </script>
