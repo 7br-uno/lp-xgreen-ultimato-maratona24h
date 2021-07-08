@@ -55,7 +55,6 @@
     },
     created(){
       barramento.diaDaPromocao((dia) =>{
-        console.log("BARRAMENTO PORRA")
         document.getElementById("btnAvista").disabled = dia;
         document.getElementById("btnPrazo").disabled = dia;
       })
