@@ -13,10 +13,10 @@
             <img v-if="i!=3" v-show="!cont.imgHover && !cont.crtlTitulo" :src="require(`../assets/${cont.img1}`)" alt="logoep" class="imgEp1">
             <img v-if="i!=3" v-show="cont.imgHover && !cont.crtlTitulo"  :src="require(`../assets/${cont.img2}`)" alt="logoep2" class="imgEp2">
           </div>
-          <p style="font-weight:bold; margin-left:5px" class="descricao">{{cont.descricao}}</p>
+          <p style="margin-left:5px" class="descricao">{{cont.descricao}}</p>
         </div>
       </div>
-      <div v-if="i==2" class="frame">
+      <!-- <div v-if="i==2" class="frame">
         <iframe v-show="cont.card && crtlBorda == i" :src="cont.video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         <div v-show="cont.card && crtlBorda == i" class="promocao">
           <h1>CLIQUE NO BOTÃO ABAIXO PARA APROVEITAR</h1>
@@ -24,9 +24,9 @@
           <button id="botaoPromocao">QUERO GANHAR 85% DE DESCONTO</button>
           <h5>Aproveite é só HOJE até as 23h59</h5>
         </div>
-      </div>
+      </div> -->
 
-      <div v-else class="soFrame">
+      <div class="soFrame">
         <iframe v-show="cont.card && crtlBorda == i" :src="cont.video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
@@ -51,7 +51,7 @@ export default {
   created(){
     barramento.diaDaPromocao((dia) =>{
       this.diaPromo = dia
-      document.getElementById("botaoPromocao").disabled = dia;
+      // document.getElementById("botaoPromocao").disabled = dia;
     })
   },
   computed:{

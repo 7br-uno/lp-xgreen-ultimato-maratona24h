@@ -26,7 +26,7 @@
   export default {
     data() {
       return {
-        hh : 23 - dateServidor.getHours(),//23,
+        hh : 71 - dateServidor.getHours(),//23,
         mm : 59 - dateServidor.getMinutes(),//59,
         ss : 59 - dateServidor.getSeconds(),//60,
         hht : '',
@@ -44,12 +44,12 @@
       
       if(diferencaExecucao > 0){
         setTimeout(() => {
-          this.hh = 23
-          this.mm = 59
-          this.ss = 59
-          this.hht = '23',
-          this.mmt = '59',
-          this.sst = '59',
+          // this.hh = 23
+          // this.mm = 59
+          // this.ss = 59
+          // this.hht = '23',
+          // this.mmt = '59',
+          // this.sst = '59',
           this.alteraDia();
         },diferencaExecucao)
       }
@@ -66,11 +66,11 @@
 
         var timeZoneLocal = new Date().getTimezoneOffset()
 
-        var timeZoneDiferenca = (180 - timeZoneLocal) * 1000 * 60
+        var timeZoneDiferenca = (180 - timeZoneLocal) * 1000 * 60 //converte para segundos depois milisegundos
 
         dateServidor = new Date(xhttp.responseText)
 
-        var dateInicio = new Date("2021-07-09T00:00:00-0300")
+        var dateInicio = new Date("2021-07-07T00:00:00-0300")
         
         dateInicio.setTime(dateInicio.getTime() - timeZoneDiferenca)
 
@@ -80,7 +80,7 @@
 
         dia = dateServidor.getDate();
         this.diaT = dia
-        if(dia == 9){
+        if(dia >= 7 && dia <= 9){
           barramento.alterarDia(false)
           this.start()
         }else{
