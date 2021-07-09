@@ -20,13 +20,16 @@
   var dia     = data.getDate()
   var dateServidor = new Date()
   var diferencaExecucao = 0
+  var horasDia = 0
+  var minutosDia = 0
+  var segundosDia = 0
   import barramento from '@/src/barramento'
 
 
   export default {
     data() {
       return {
-        hh : 71 - dateServidor.getHours(),//23,
+        hh : horasDia,//dateServidor.getHours(),//23,
         mm : 59 - dateServidor.getMinutes(),//59,
         ss : 59 - dateServidor.getSeconds(),//60,
         hht : '',
@@ -41,7 +44,7 @@
     mounted(){
       //clearInterval(this.cron)
       this.alteraDia();
-      
+
       if(diferencaExecucao > 0){
         setTimeout(() => {
           // this.hh = 23
@@ -81,6 +84,18 @@
         dia = dateServidor.getDate();
         this.diaT = dia
         if(dia >= 7 && dia <= 9){
+
+          if(dia == 7){
+            horasDia = 71 - dateServidor.getHours()
+            this.hh = horasDia
+          }else if(dia == 8) {
+            horasDia = 47 - dateServidor.getHours()
+            this.hh = horasDia
+          }else if(dia == 9){
+            horasDia = 23 - dateServidor.getHours()
+            this.hh = horasDia
+          }
+
           barramento.alterarDia(false)
           this.start()
         }else{
