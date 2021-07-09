@@ -78,6 +78,12 @@ export default {
           success: colors.green.accent3
         }
       }
+    },
+    treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Montserrat'
+      }
     }
   },
 

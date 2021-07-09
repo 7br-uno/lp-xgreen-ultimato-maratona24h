@@ -1,6 +1,6 @@
 <template>
   <div class="cron">
-    <p>NOVA OPORTUNIDADE ENCERRA EM:</p>
+    <p class="text-center">NOVA OPORTUNIDADE<br>ENCERRA EM:</p>
     <div class="horas">
       <h1>{{hht}}:</h1>
       <h1>{{mmt}}:</h1>

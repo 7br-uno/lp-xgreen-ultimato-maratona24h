@@ -1,38 +1,42 @@
 <template>
   <div class="principal">
     <TopBar/>
-    <div class="explicacao">
-      <h1>SE VOCÊ AINDA TEM ALGUMA DÚVIDA, PRESTE ATENÇÃO!</h1>
-      <div class="textoExplicacao">
-        <p>Você tem <b>7 DIAS DE GARANTIA </b> incondicional, para experimentar todo o conteúdo e pedir o seu dinheiro de volta por qualquer motivo.</p>
-        <b>E mais 1 ANO DE GARANTIA condicional</b>. Se você assistir a tudo, aplicar e não lucrar pelo menos o valor do curso, <font color="#01CC37"> te devolvemos o valor do seu investimento</font> <font color="#01FF4E"><b> e mais R$500 do meu próprio bolso.</b></font>
+    <v-container>
+      <div class="explicacao">
+        <h1 class="display-1 display-sm-2">SE VOCÊ AINDA TEM ALGUMA DÚVIDA, PRESTE ATENÇÃO!</h1>
+        <div class="textoExplicacao text-center text-sm-left">
+          <p>Você tem <b>7 DIAS DE GARANTIA </b> incondicional, para experimentar todo o conteúdo e pedir o seu dinheiro de volta por qualquer motivo.</p>
+          <b>E mais 1 ANO DE GARANTIA condicional</b>. Se você assistir a tudo, aplicar e não lucrar pelo menos o valor do curso, <font color="#01CC37"> te devolvemos o valor do seu investimento</font> <font color="#01FF4E"><b> e mais R$500 do meu próprio bolso.</b></font>
+        </div>
       </div>
-    </div>
+    </v-container>
     <ConteudoComponent/>
-    <div class="texto2">
-      <p>Agora você também pode comprar nosso curso através do <b>boleto parcelado.</b></p>
-      <p class="pGaranta"><b>Garanta sua vaga agora mesmo!</b></p>
-    </div>
+    <v-container>
+      <div class="texto2">
+        <p>Agora você também pode comprar nosso curso através do <b>boleto parcelado.</b></p>
+        <p class="pGaranta"><b>Garanta sua vaga agora mesmo!</b></p>
+      </div>
 
-    <div class="pagamento">
-      <div class="divAvista">
-        <p class="aVista">Para pagamento com cartão de crédito, Pix, boleto, Paypal, Conta Hotmart, Samsung Pay, Google Pay e débito</p>
-        <button>
-          <a href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319">
-            CLIQUE AQUI
-          </a>
-        </button>
+      <div class="pagamento">
+        <div class="divAvista">
+          <p class="aVista">Para pagamento com cartão de crédito, Pix, boleto, Paypal, Conta Hotmart, Samsung Pay, Google Pay e débito</p>
+          <button>
+            <a target="_blank" href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319">
+              CLIQUE AQUI
+            </a>
+          </button>
+        </div>
+        <v-divider v-if="!$vuetify.breakpoint.xs" vertical style="border-color: #01ff4e;"></v-divider>
+        <div class="divAvista">
+          <p class="aVista" style="margin-top:30px">Para pagamento com <br> <b>boleto parcelado</b></p>
+          <button style="margin-top:20px">
+            <a target="_blank" href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454">
+              CLIQUE AQUI
+            </a>
+          </button>
+        </div>
       </div>
-      <div class="linha-vertical"></div>
-      <div class="divAvista">
-        <p class="aVista" style="margin-top:30px">Para pagamento com <br> <b>boleto parcelado</b></p>
-        <button style="margin-top:20px">
-          <a href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454">
-            CLIQUE AQUI
-          </a>
-        </button>
-      </div>
-    </div>
+    </v-container>
     <MyFooter />
   </div>
 </template>
@@ -71,12 +75,12 @@
 
   .explicacao h1 {
     color: rgb(0, 255, 74);
-    width: 50%;
+    width: 75%;
   }
 
   .textoExplicacao{
     margin-top: 20px;
-    width: 50%;
+    width: 75%;
   }
 
   .texto2{
@@ -161,7 +165,7 @@
     }
   }
 
-@media (max-width:475px){
+@media (max-width:600px){
     .pagamento{
       flex-direction: column;
     }
