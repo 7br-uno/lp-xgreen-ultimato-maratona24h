@@ -71,7 +71,7 @@
 
         var timeZoneDiferenca = (180 - timeZoneLocal) * 1000 * 60 //converte para segundos depois milisegundos
 
-        dateServidor = new Date(xhttp.responseText)
+        dateServidor = new Date()
 
         var dateInicio = new Date("2021-07-07T00:00:00-0300")
         

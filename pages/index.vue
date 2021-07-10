@@ -20,8 +20,8 @@
       <div class="pagamento">
         <div class="divAvista">
           <p class="aVista">Para pagamento com cartão de crédito, Pix, boleto, Paypal, Conta Hotmart, Samsung Pay, Google Pay e débito</p>
-          <button>
-            <a target="_blank" href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319">
+          <button id="btnAvista">
+            <a id="linkAvista" target="_blank" href="https://pay.hotmart.com/W55117628G?off=eufxncec&checkoutMode=10&bid=1625667451319">
               CLIQUE AQUI
             </a>
           </button>
@@ -29,8 +29,8 @@
         <v-divider v-if="!$vuetify.breakpoint.xs" vertical style="border-color: #01ff4e;"></v-divider>
         <div class="divAvista">
           <p class="aVista" style="margin-top:30px">Para pagamento com <br> <b>boleto parcelado</b></p>
-          <button style="margin-top:20px">
-            <a target="_blank" href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454">
+          <button id="btnPrazo" style="margin-top:20px">
+            <a id="linkPrazo" target="_blank" href="https://pay.hotmart.com/W55117628G?off=ss1et2kd&checkoutMode=10&bid=1625667385454">
               CLIQUE AQUI
             </a>
           </button>
@@ -45,6 +45,7 @@
  import TopBar from '@/src/components/TopBar.vue'
  import ConteudoComponent from '@/src/components/Conteudo.vue'
  import MyFooter from '@/src/components/myFooter'
+ import barramento from '@/src/barramento'
 
   export default {
     components:{
@@ -52,7 +53,13 @@
       ConteudoComponent,
       MyFooter
     },
-    
+    created(){
+      barramento.diaDaPromocao((dia) =>{
+        console.log("BARRAMENTO PORRA")
+        document.getElementById("btnAvista").disabled = dia;
+        document.getElementById("btnPrazo").disabled = dia;
+      })
+    },
   }
 </script>
 
