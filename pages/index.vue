@@ -3,7 +3,7 @@
     <TopBar/>
     <v-container>
       <div class="explicacao">
-        <h1 class="display-1 display-sm-2">SE VOCÊ AINDA TEM ALGUMA DÚVIDA, PRESTE ATENÇÃO!</h1>
+        <h1 class="display-1 display-sm-2 font-weight-bold">SE VOCÊ AINDA TEM ALGUMA DÚVIDA, PRESTE ATENÇÃO!</h1>
         <div class="textoExplicacao text-center text-sm-left">
           <p>Você tem <b>7 DIAS DE GARANTIA </b> incondicional, para experimentar todo o conteúdo e pedir o seu dinheiro de volta por qualquer motivo.</p>
           <b>E mais 1 ANO DE GARANTIA condicional</b>. Se você assistir a tudo, aplicar e não lucrar pelo menos o valor do curso, <font color="#01CC37"> te devolvemos o valor do seu investimento</font> <font color="#01FF4E"><b> e mais R$500 do meu próprio bolso.</b></font>
@@ -13,8 +13,8 @@
     <ConteudoComponent/>
     <v-container>
       <div class="texto2">
-        <p>Agora você também pode comprar nosso curso através do <b>boleto parcelado.</b></p>
-        <p class="pGaranta"><b>Garanta sua vaga agora mesmo!</b></p>
+        <p class="title">Agora você também pode comprar nosso curso através do <b>boleto parcelado.</b></p>
+        <p class="display-1 display-sm-2 font-weight-bold">Garanta sua vaga agora mesmo!</p>
       </div>
 
       <div class="pagamento">
@@ -82,7 +82,7 @@
 
   .explicacao h1 {
     color: rgb(0, 255, 74);
-    width: 75%;
+    width: 67%;
   }
 
   .textoExplicacao{
@@ -123,10 +123,11 @@
     width: 100%;
     max-width: 100%;
     padding: 20px;
+    font-size: 16pt;
   }
 
   .divAvista{
-    width: 300px;
+    width: 380px;
     max-width: 100%;
     display: flex;
     flex-direction: column;
